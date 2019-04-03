@@ -4,4 +4,4 @@ A simple animation of a stick figure cowboy getting hit by his own bullet, using
 
 This was created as an exercise for educational purposes.
 
-I do not own the photo used in the background, it was downloaded from the internet.
+I do not own the photo used in the background.
