@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Cowboy</title>
+  <meta charset="utf-8">
+<link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+	  <style>
+	  div {
+    width:1000px;
+	  height:800px;
+	  background-color:orange;
+	  background-image: url("horse_usa_arizona_monument_valley_desert_wild_west_102732_1920x1200.jpg")
+	  }
+	  </style>
+	</head>
+	<body style="background-color:orange;">
+		<div >
+		<canvas id="canvas1" width="1000" height="800"> </canvas>
+		</div>
+
+    <script>
+    (function() {
+      var requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                                  window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+      window.requestAnimationFrame = requestAnimationFrame;
+    })();
+    // canvas creation
+    var c = document.querySelector("#canvas1");
+    var ctx = c.getContext('2d');
+    var x = 290;
+    var y = 400;
+    var xdir = 1;
+    var ydir = 0;
+
+    var a = 200;
+    var b = 350;
+    var c = 200;
+    var d = 380;
+    var e = 200;
+    var f = 480;
+    var g = 150;
+    var h = 430;
+    var i = 250;
+    var w = 430;
+    var j = 150;
+    var k = 580;
+    var l = 250;
+    var z = 580;
+    var m = 170;
+    var n = 280;
+    var o = 150;
+    var p = 320;
+    var q = 250;
+    var r = 320;
+    var u = 60;
+    var v = 40;
+    var s = 250;
+    var t = 400;
+    var s2 = 290;
+    var t2 = 400;
+
+    var text = "";
+
+    function select () {
+    	if (x == 800){
+
+    	xdir = -1* xdir;
+      ydir = -1* ydir;
+    }
+
+
+    		if (xdir==1) {
+    		x = x + 5;
+    		}
+    		else
+    		{
+    		x = x - 5;
+        y = y - 0.5;
+    		}
+
+        if (x == 200) {
+          x = 0;
+          y = 0;
+
+          a = 150;
+          b = 580;
+          c = 180;
+          d = 580;
+          e = 280;
+          f = 580;
+          g = 230;
+          h = 630;
+          i = 230;
+          w = 530;
+          j = 380;
+          k = 630;
+          l = 380;
+          z = 530;
+          m = 80;
+          n = 550;
+          o = 120;
+          p = 630;
+          u = 40;
+          v = 60;
+          q = 120;
+          r = 530;
+          s = 200;
+          t = 530;
+          s2 = 200;
+          t2 = 490;
+
+          text = "This was a mistake!"
+
+        }
+
+
+    	requestAnimationFrame(draw);
+
+    		}
+
+    function draw()  {
+      ctx.clearRect(0, 0, 1000, 800);
+    	ctx.beginPath(); // bullet
+      ctx.fillStyle="black";
+      ctx.arc(x, y, 5, 0, Math.PI * 2, true);
+      ctx.fill();
+
+      ctx.beginPath(); // wall
+      ctx.fillStyle="#aaa7a4";
+      ctx.fillRect(800, 200, 80, 400);
+      ctx.fill();
+
+      ctx.beginPath(); // head
+      ctx.fillStyle = "#e5c6ac";
+      ctx.arc(a, b, 30, 0, Math.PI * 2, true);
+      ctx.fill();
+
+      ctx.beginPath(); // body
+      ctx.lineWidth=10;
+      ctx.moveTo(c, d);
+      ctx.lineTo(e, f);
+      ctx.strokeStyle = "#53afd6";
+      ctx.stroke();
+
+      ctx.beginPath(); // arms
+      ctx.strokeStyle = "53afd6";
+      ctx.moveTo(c, d);
+      ctx.lineTo(g, h);
+      ctx.moveTo(c, d);
+      ctx.lineTo(i, w);
+      ctx.stroke();
+
+      ctx.beginPath(); // legs
+      ctx.strokeStyle = "53afd6";
+      ctx.moveTo(e, f);
+      ctx.lineTo(j, k);
+      ctx.moveTo(e, f);
+      ctx.lineTo(l, z);
+      ctx.stroke();
+
+      ctx.beginPath(); // gun
+      ctx.strokeStyle = "black";
+      ctx.moveTo(i, w);
+      ctx.lineTo(s, t);
+      ctx.moveTo(s, t);
+      ctx.lineTo(s2, t2);
+      ctx.stroke();
+
+      ctx.beginPath(); // hat
+      ctx.fillStyle = "#a88d21";
+      ctx.fillRect(m, n, u, v);
+
+      ctx.beginPath(); // hat
+      ctx.strokeStyle = "#a88d21";
+      ctx.moveTo(o, p);
+      ctx.lineTo(q, r);
+      ctx.stroke();
+
+      ctx.font = "12px Arial";
+      ctx.fillStyle="white";
+      ctx.fillText(text, 80, 500);
+
+
+    }
+
+    requestAnimationFrame(draw);
+    setInterval(select, 8);
+
+    </script>
+	</body>
+</html>
